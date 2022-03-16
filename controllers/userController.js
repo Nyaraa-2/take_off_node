@@ -19,6 +19,6 @@ export async function addUser(req, res) {
     console.log(res.insertId)
   } catch (error) {
     console.log(error)
-    res.status(503).send(ERROR_GET_USER + ' ' + `${error}`)
+    res.status(503).send(ERROR_POST_USER + ' ' + `${error}`)
   }
 }
