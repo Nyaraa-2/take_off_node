@@ -19,7 +19,6 @@ export async function addUser(req, res) {
   try {
     const user = req.body
     res.json(await postUser(user))
-    console.log(res.insertId)
   } catch (error) {
     console.log(error)
     res.status(503).send(ERROR_POST_USER + ' ' + `${error}`)
