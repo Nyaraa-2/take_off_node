@@ -1,9 +1,6 @@
 import { database } from '../db.js'
 import { GET_LOGGIN_SQL, CREATE_LOGGIN } from '../src/loggin/queries.js'
-import {
-  ERROR_GET_LOGGIN,
-  ERROR_POST_LOGGIN,
-} from '../src/loggin/constants.js'
+import { ERROR_GET_LOGGIN, ERROR_POST_LOGGIN } from '../src/loggin/constants.js'
 
 /**
  * Methode asynchrone, récupère la liste des utilisateurs
@@ -33,3 +30,11 @@ export async function postLoggin(loggin) {
     throw ERROR_POST_LOGGIN + ' ' + `${error}`
   }
 }
+
+// export function testQueryParams() {
+//   try {
+//     return null
+//   } catch (error) {
+//     throw ERROR_POST_LOGGIN + ' ' + `${error}`
+//   }
+// }

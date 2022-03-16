@@ -4,8 +4,10 @@ const app = express()
 const port = 3000
 import userRouter from './src/user/routes.js'
 import loginRouter from './src/loggin/routes.js'
+import statusRouter from './src/status/routes.js'
 import { USER_ROUTE } from './src/user/constants.js'
 import { LOGGIN_ROUTE } from './src/loggin/constants.js'
+import { STATUS_ROUTE } from './src/status/constants.js'
 
 app.use(express.json())
 app.use(cors())
@@ -16,5 +18,5 @@ app.get('/', (req, res) => {
 
 app.use(USER_ROUTE, userRouter)
 app.use(LOGGIN_ROUTE, loginRouter)
-
+app.use(STATUS_ROUTE, statusRouter)
 app.listen(port, () => console.log(`App take off listen on port ${port}`))
