@@ -1,8 +1,8 @@
 import Pool from 'pg-pool'
 export const database = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'takeoff',
-  password: '200316',
+  user: 'enzoavlt',
+  host: 'postgresql-enzoavlt.alwaysdata.net',
+  database: 'enzoavlt_takeoff',
+  password: 'takeoffbdd',
   port: 5432,
 })
