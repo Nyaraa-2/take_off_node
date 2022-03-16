@@ -22,7 +22,7 @@ export async function getUsersSql() {
 /**
  * Methode asynchrone, création d'un nouvel utilisateur
  * @param {Nouvel utilisateur} user
- * @returns
+ * @returns Id nouvel utilateur inséré
  */
 export async function postUser(user) {
   try {

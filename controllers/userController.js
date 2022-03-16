@@ -12,6 +12,9 @@ export async function getUsers(req, res) {
   }
 }
 
+/**
+ * POST Ajoute un utilisateur en page de donnée
+ */
 export async function addUser(req, res) {
   try {
     const user = req.body
