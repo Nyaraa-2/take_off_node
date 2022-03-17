@@ -3,8 +3,8 @@ import { GET_LOGGIN_SQL, CREATE_LOGGIN } from '../src/loggin/queries.js'
 import { ERROR_GET_LOGGIN, ERROR_POST_LOGGIN } from '../src/loggin/constants.js'
 
 /**
- * Methode asynchrone, récupère la liste des utilisateurs
- * @returns Retourne la liste des utilisateurs
+ * Methode asynchrone, récupère la liste des loggins
+ * @returns Retourne la liste des loggins
  */
 export async function getLogginsSql() {
   try {
@@ -16,7 +16,7 @@ export async function getLogginsSql() {
 }
 
 /**
- * Methode asynchrone, création d'un nouvel utilisateur
+ * Methode asynchrone, création d'un nouveau loggin
  * @param {Nouveau loggin} loggin
  */
 export async function postLoggin(loggin) {
