@@ -1,14 +1,33 @@
+import UserNotFound from '../exception/UserNotFound.js'
+import DataBaseAccess from '../exception/DataBaseAccess.js'
 import { getUsersSql, postUser } from '../services/userServices.js'
-import { ERROR_GET_USER, ERROR_POST_USER } from '../src/user/constants.js'
+import {
+  ERROR_GET_USER,
+  ERROR_POST_USER,
+  NOT_FOUND,
+} from '../src/user/constants.js'
 /**
  * GET, retourne la liste de tous les utilisateurs
  */
 export async function getUsers(req, res) {
   try {
-    res.json(await getUsersSql())
+    const users = await getUsersSql()
+    if (users.length > 0) {
+      res.json(users)
+    } else {
+      throw new UserNotFound()
+    }
   } catch (error) {
-    res.status(503).send(ERROR_GET_USER + ' ' + `${error}`)
-    console.log(error)
+    if (error instanceof UserNotFound) {
+      res.status(error.statusCode()).send(NOT_FOUND)
+      console.log(error)
+    }
+    if (error instanceof DataBaseAccess) {
+      res.status(error.statusCode()).send('Erreur Bdd')
+    } else {
+      res.status(400).send(ERROR_GET_USER + ' ' + `${error}`)
+      console.log(error)
+    }
   }
 }
 
@@ -20,7 +39,11 @@ export async function addUser(req, res) {
     const user = req.body
     res.json(await postUser(user))
   } catch (error) {
-    console.log(error)
-    res.status(503).send(ERROR_POST_USER + ' ' + `${error}`)
+    if (error instanceof DataBaseAccess) {
+      res.status(error.statusCode()).send('Erreur Bdd')
+    } else {
+      console.log(error)
+      res.status(503).send(ERROR_POST_USER + ' ' + `${error}`)
+    }
   }
 }

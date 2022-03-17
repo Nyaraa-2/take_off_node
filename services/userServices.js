@@ -1,4 +1,5 @@
 import { database } from '../db.js'
+import DataBaseAccess from '../exception/DataBaseAccess.js'
 import { GET_USERS_SQL, CREATE_USER } from '../src/user/queries.js'
 import {
   ERROR_GET_USER,
@@ -15,7 +16,11 @@ export async function getUsersSql() {
     const { rows } = await database.query(GET_USERS_SQL)
     return rows
   } catch (error) {
-    throw ERROR_GET_USER + ' ' + `${error}`
+    if ((error.code = 'ECONNREFUSED')) {
+      throw new DataBaseAccess()
+    } else {
+      throw ERROR_GET_USER + ' ' + `${error}`
+    }
   }
 }
 
@@ -44,6 +49,10 @@ export async function postUser(user) {
       user.id_location,
     ])
   } catch (error) {
-    throw `${error}`
+    if ((error.code = 'ECONNREFUSED')) {
+      throw new DataBaseAccess()
+    } else {
+      throw ERROR_POST_USER + ' ' + `${error}`
+    }
   }
 }
