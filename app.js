@@ -11,6 +11,7 @@ import experienceRouter from './src/experience/routes.js'
 import graduationRouter from './src/graduation/routes.js'
 import jobRouter from './src/job/routes.js'
 import favoriteJobRouter from './src/favorite_job/routes.js'
+import expertiseRouter from './src/expertise/routes.js'
 import { USER_ROUTE } from './src/user/constants.js'
 import { LOGGIN_ROUTE } from './src/loggin/constants.js'
 import { STATUS_ROUTE } from './src/status/constants.js'
@@ -20,6 +21,7 @@ import { EXPERIENCE_ROUTE } from './src/experience/constants.js'
 import { GRADUATION_ROUTE } from './src/graduation/constants.js'
 import { JOB_ROUTE } from './src/job/constants.js'
 import { FAVORITE_JOB_ROUTE } from './src/favorite_job/constants.js'
+import { EXPERTISE_ROUTE } from './src/expertise/constants.js'
 
 app.use(express.json())
 app.use(cors())
@@ -37,5 +39,6 @@ app.use(EXPERIENCE_ROUTE, experienceRouter)
 app.use(GRADUATION_ROUTE, graduationRouter)
 app.use(JOB_ROUTE, jobRouter)
 app.use(FAVORITE_JOB_ROUTE, favoriteJobRouter)
+app.use(EXPERTISE_ROUTE, expertiseRouter)
 
 app.listen(port, () => console.log(`App take off listen on port ${port}`))
