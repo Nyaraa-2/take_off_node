@@ -1,10 +1,7 @@
-import { database } from '../db.js'
-import DataBaseAccess from '../exception/DataBaseAccess.js'
-import { GET_GRADUATION_SQL, CREATE_GRADUATION_SQL } from '../src/graduation/queries.js'
-import {
-  ERROR_GET_GRADUATION,
-  ERROR_POST_GRADUATION,
-} from '../src/graduation/constants.js'
+import { database } from '../../db.js'
+import DataBaseAccess from '../_exception/DataBaseAccess.js'
+import { GET_GRADUATION_SQL, CREATE_GRADUATION_SQL } from './queries.js'
+import { ERROR_GET_GRADUATION, ERROR_POST_GRADUATION } from './constants.js'
 
 /**
  * Methode asynchrone, récupère la liste des diplômes

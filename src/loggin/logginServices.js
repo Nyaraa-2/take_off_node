@@ -1,6 +1,6 @@
-import { database } from '../db.js'
-import { GET_LOGGIN_SQL, CREATE_LOGGIN } from '../src/loggin/queries.js'
-import { ERROR_GET_LOGGIN, ERROR_POST_LOGGIN } from '../src/loggin/constants.js'
+import { database } from '../../db.js'
+import { GET_LOGGIN_SQL, CREATE_LOGGIN } from './queries.js'
+import { ERROR_GET_LOGGIN, ERROR_POST_LOGGIN } from './constants.js'
 
 /**
  * Methode asynchrone, récupère la liste des loggins

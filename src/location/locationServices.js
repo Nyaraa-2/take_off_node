@@ -1,6 +1,6 @@
-import { database } from '../db.js'
-import { GET_LOCATION_SQL } from '../src/location/queries.js'
-import { ERROR_GET_LOCATION } from '../src/location/constants.js'
+import { database } from '../../db.js'
+import { GET_LOCATION_SQL } from './queries.js'
+import { ERROR_GET_LOCATION } from './constants.js'
 
 /**
  * Methode asynchrone, récupère la liste des villes

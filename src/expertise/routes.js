@@ -1,6 +1,6 @@
 import express from 'express'
 const expertiseRouter = express.Router()
-import { getExpertises } from '../../controllers/expertiseController.js'
+import { getExpertises } from './expertiseController.js'
 
 expertiseRouter.get('/expertises', getExpertises)
 

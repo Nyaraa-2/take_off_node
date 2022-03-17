@@ -1,6 +1,6 @@
-import { database } from '../db.js'
-import { GET_EXPERIENCE_SQL, CREATE_EXPERIENCE } from '../src/experience/queries.js'
-import { ERROR_GET_EXPERIENCE, ERROR_POST_EXPERIENCE } from '../src/experience/constants.js'
+import { database } from '../../db.js'
+import { GET_EXPERIENCE_SQL, CREATE_EXPERIENCE } from './queries.js'
+import { ERROR_GET_EXPERIENCE, ERROR_POST_EXPERIENCE } from './constants.js'
 
 /**
  * Methode asynchrone, récupère la liste des expériences

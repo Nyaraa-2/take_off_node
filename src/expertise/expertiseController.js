@@ -1,7 +1,7 @@
-import DataBaseAccess from '../exception/DataBaseAccess.js'
-import ExpertiseNotFound from '../exception/ExpertiseNotFound.js'
-import { getExpertisesSql } from '../services/expertiseServices.js'
-import { ERROR_GET_EXPERTISE, NOT_FOUND } from '../src/expertise/constants.js'
+import DataBaseAccess from '../_exception/DataBaseAccess.js'
+import ExpertiseNotFound from '../_exception/ExpertiseNotFound.js'
+import { getExpertisesSql } from './expertiseServices.js'
+import { ERROR_GET_EXPERTISE, NOT_FOUND } from './constants.js'
 
 /**
  * GET, retourne la liste de toutes les compétences

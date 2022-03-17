@@ -1,5 +1,5 @@
-import { getStatusSql } from '../services/statusServices.js'
-import { ERROR_GET_STATUS } from '../src/status/constants.js'
+import { getStatusSql } from './statusServices.js'
+import { ERROR_GET_STATUS } from './constants.js'
 
 /**
  * GET, retourne la liste des statuts des devis

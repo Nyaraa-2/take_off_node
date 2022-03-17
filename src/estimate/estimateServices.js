@@ -1,10 +1,7 @@
-import { database } from '../db.js'
-import DataBaseAccess from '../exception/DataBaseAccess.js'
-import { GET_ESTIMATE_SQL, POST_ESTIMATE_SQL } from '../src/estimate/queries.js'
-import {
-  ERROR_GET_ESTIMATE,
-  ERROR_POST_ESTIMATE,
-} from '../src/estimate/constants.js'
+import { database } from '../../db.js'
+import DataBaseAccess from '../_exception/DataBaseAccess.js'
+import { GET_ESTIMATE_SQL, POST_ESTIMATE_SQL } from './queries.js'
+import { ERROR_GET_ESTIMATE, ERROR_POST_ESTIMATE } from './constants.js'
 
 /**
  * Methode asynchrone, récupère la liste des devis

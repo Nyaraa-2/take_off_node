@@ -1,6 +1,6 @@
-import { database } from '../db.js'
-import { GET_STATUS_SQL } from '../src/status/queries.js'
-import { ERROR_GET_STATUS } from '../src/status/constants.js'
+import { database } from '../../db.js'
+import { GET_STATUS_SQL } from './queries.js'
+import { ERROR_GET_STATUS } from './constants.js'
 
 /**
  * Methode asynchrone récupère la liste des status des devis

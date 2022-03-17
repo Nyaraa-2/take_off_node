@@ -1,11 +1,11 @@
-import DataBaseAccess from '../exception/DataBaseAccess.js'
-import FavoriteJobNotFound from '../exception/FavoriteJobNotFound.js'
-import { getFavoriteJobSql, postFavoriteJob } from '../services/favoriteJobServices.js'
+import DataBaseAccess from '../_exception/DataBaseAccess.js'
+import FavoriteJobNotFound from '../_exception/FavoriteJobNotFound.js'
+import { getFavoriteJobSql, postFavoriteJob } from './favoriteJobServices.js'
 import {
   ERROR_GET_FAVORITE_JOB,
   ERROR_POST_FAVORITE_JOB,
   NOT_FOUND,
-} from '../src/favorite_job/constants.js'
+} from './constants.js'
 
 /**
  * GET, retourne la liste de tous les jobs favoris

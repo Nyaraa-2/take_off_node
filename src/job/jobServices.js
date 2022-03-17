@@ -1,7 +1,7 @@
-import { GET_JOBS_SQL } from '../src/job/queries.js'
-import { database } from '../db.js'
-import DataBaseAccess from '../exception/DataBaseAccess.js'
-import { ERROR_GET_JOB } from '../src/job/constants.js'
+import { GET_JOBS_SQL } from './queries.js'
+import { database } from '../../db.js'
+import DataBaseAccess from '../_exception/DataBaseAccess.js'
+import { ERROR_GET_JOB } from './constants.js'
 
 /**
  * Methode asynchrone, récupère la liste des professions

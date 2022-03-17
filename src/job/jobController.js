@@ -1,7 +1,7 @@
-import JobNotFound from '../exception/JobNotFound.js'
-import DataBaseAccess from '../exception/DataBaseAccess.js'
-import { getJobsSql } from '../services/jobServices.js'
-import { ERROR_GET_JOB, NOT_FOUND } from '../src/job/constants.js'
+import JobNotFound from '../_exception/JobNotFound.js'
+import DataBaseAccess from '../_exception/DataBaseAccess.js'
+import { getJobsSql } from './jobServices.js'
+import { ERROR_GET_JOB, NOT_FOUND } from './constants.js'
 
 /**
  * GET, retourne la liste de tous les jobs

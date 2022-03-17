@@ -1,5 +1,5 @@
-import { getLocationSql } from '../services/locationServices.js'
-import { ERROR_GET_LOCATION } from '../src/location/constants.js'
+import { getLocationSql } from './locationServices.js'
+import { ERROR_GET_LOCATION } from './constants.js'
 
 export async function getLocation(req, res) {
   try {

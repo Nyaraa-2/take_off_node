@@ -1,6 +1,6 @@
 import express from 'express'
 const jobRouter = express.Router()
-import { getJobs } from '../../controllers/jobController.js'
+import { getJobs } from './jobController.js'
 
 jobRouter.get('/jobs', getJobs)
 

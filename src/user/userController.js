@@ -1,11 +1,7 @@
-import UserNotFound from '../exception/UserNotFound.js'
-import DataBaseAccess from '../exception/DataBaseAccess.js'
-import { getUsersSql, postUser } from '../services/userServices.js'
-import {
-  ERROR_GET_USER,
-  ERROR_POST_USER,
-  NOT_FOUND,
-} from '../src/user/constants.js'
+import UserNotFound from '../_exception/UserNotFound.js'
+import DataBaseAccess from '../_exception/DataBaseAccess.js'
+import { getUsersSql, postUser } from './userServices.js'
+import { ERROR_GET_USER, ERROR_POST_USER, NOT_FOUND } from './constants.js'
 /**
  * GET, retourne la liste de tous les utilisateurs
  */

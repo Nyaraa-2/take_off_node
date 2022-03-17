@@ -1,11 +1,11 @@
-import DataBaseAccess from '../exception/DataBaseAccess.js'
-import GraduationNotFound from '../exception/GraduationNotFound.js'
-import { getGraduationSql, postGraduation } from '../services/graduationServices.js'
+import DataBaseAccess from '../_exception/DataBaseAccess.js'
+import GraduationNotFound from '../_exception/GraduationNotFound.js'
+import { getGraduationSql, postGraduation } from './graduationServices.js'
 import {
   ERROR_GET_GRADUATION,
   ERROR_POST_GRADUATION,
   NOT_FOUND,
-} from '../src/graduation/constants.js'
+} from './constants.js'
 
 /**
  * GET, retourne la liste de tous les diplômes
