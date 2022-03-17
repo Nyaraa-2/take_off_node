@@ -1,7 +1,7 @@
 import { getLocationSql } from './locationServices.js'
 import { ERROR_GET_LOCATION } from './constants.js'
 
-export async function getLocation(req, res) {
+export async function getLocations(req, res) {
   try {
     res.json(await getLocationSql())
   } catch (error) {

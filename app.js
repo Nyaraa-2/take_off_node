@@ -1,6 +1,5 @@
 import express from 'express'
 import cors from 'cors'
-const app = express()
 const port = 3000
 import userRouter from './src/user/routes.js'
 import loginRouter from './src/loggin/routes.js'
@@ -14,36 +13,26 @@ import favoriteJobRouter from './src/favorite_job/routes.js'
 import expertiseRouter from './src/expertise/routes.js'
 import jobExpertiseRouter from './src/job_expertise/routes.js'
 import expertiseCategoryRouter from './src/expertise_category/routes.js'
-import { USER_ROUTE } from './src/user/constants.js'
-import { LOGGIN_ROUTE } from './src/loggin/constants.js'
-import { STATUS_ROUTE } from './src/status/constants.js'
-import { LOCATION_ROUTE } from './src/location/constants.js'
-import { ESTIMATE_ROUTE } from './src/estimate/constants.js'
-import { EXPERIENCE_ROUTE } from './src/experience/constants.js'
-import { GRADUATION_ROUTE } from './src/graduation/constants.js'
-import { JOB_ROUTE } from './src/job/constants.js'
-import { FAVORITE_JOB_ROUTE } from './src/favorite_job/constants.js'
-import { EXPERTISE_ROUTE } from './src/expertise/constants.js'
-import { JOB_EXPERTISE_ROUTE } from './src/job_expertise/constants.js'
-import { EXPERTISE_CATEGORY_ROUTE } from './src/expertise_category/constants.js'
+const basicRoute = '/'
+const app = express()
 app.use(express.json())
 app.use(cors())
 
-app.get('/', (req, res) => {
+app.get(basicRoute, (req, res) => {
   res.send('Hello from Take_Off API')
 })
 
-app.use(USER_ROUTE, userRouter)
-app.use(LOGGIN_ROUTE, loginRouter)
-app.use(STATUS_ROUTE, statusRouter)
-app.use(LOCATION_ROUTE, locationRouter)
-app.use(ESTIMATE_ROUTE, estimateRouter)
-app.use(EXPERIENCE_ROUTE, experienceRouter)
-app.use(GRADUATION_ROUTE, graduationRouter)
-app.use(JOB_ROUTE, jobRouter)
-app.use(FAVORITE_JOB_ROUTE, favoriteJobRouter)
-app.use(EXPERTISE_ROUTE, expertiseRouter)
-app.use(JOB_EXPERTISE_ROUTE, jobExpertiseRouter)
-app.use(EXPERTISE_CATEGORY_ROUTE, expertiseCategoryRouter)
+app.use(basicRoute, userRouter)
+app.use(basicRoute, loginRouter)
+app.use(basicRoute, statusRouter)
+app.use(basicRoute, locationRouter)
+app.use(basicRoute, estimateRouter)
+app.use(basicRoute, experienceRouter)
+app.use(basicRoute, graduationRouter)
+app.use(basicRoute, jobRouter)
+app.use(basicRoute, favoriteJobRouter)
+app.use(basicRoute, expertiseRouter)
+app.use(basicRoute, jobExpertiseRouter)
+app.use(basicRoute, expertiseCategoryRouter)
 
 app.listen(port, () => console.log(`App take off listen on port ${port}`))
