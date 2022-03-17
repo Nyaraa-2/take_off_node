@@ -2,6 +2,6 @@ import express from 'express'
 const statusRouter = express.Router()
 import { getStatus } from './statusController.js'
 
-statusRouter.get('/', getStatus)
+statusRouter.get('/status', getStatus)
 
 export default statusRouter
