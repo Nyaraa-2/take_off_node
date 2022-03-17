@@ -2,7 +2,7 @@ import { getLogginsSql, postLoggin } from '../services/logginServices.js'
 import { ERROR_GET_LOGGIN, ERROR_POST_LOGGIN } from '../src/loggin/constants.js'
 // import url from 'url'
 /**
- * GET, retourne la liste de tous les utilisateurs
+ * GET, retourne la liste de tous les loggins
  */
 export async function getLoggins(req, res) {
   try {
