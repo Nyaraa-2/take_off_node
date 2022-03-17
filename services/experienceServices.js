@@ -6,7 +6,7 @@ import { ERROR_GET_EXPERIENCE, ERROR_POST_EXPERIENCE } from '../src/experience/c
  * Methode asynchrone, récupère la liste des expériences
  * @returns Retourne la liste des expériences
  */
-export async function getExperiencesSql() {
+export async function getExperienceSql() {
   try {
     const { rows } = await database.query(GET_EXPERIENCE_SQL)
     return rows
