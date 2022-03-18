@@ -1,6 +1,6 @@
 import DataBaseAccess from '../_exception/DataBaseAccess.js'
 import ExperienceNotFound from '../_exception/ExperienceNotFound.js'
-import { getExperienceSql, postExperience } from './experienceServices.js'
+import * as service from './experienceServices.js'
 import {
   ERROR_GET_EXPERIENCE,
   ERROR_POST_EXPERIENCE,
@@ -12,21 +12,19 @@ import {
  */
 export async function getExperiences(req, res) {
   try {
-    const experiences = await getExperienceSql()
-    if (experiences.length > 0) {
-      res.json(experiences)
-    } else {
-      throw new ExperienceNotFound()
-    }
+    const experiences = await service.getExperiences()
+    res.json(experiences)
   } catch (error) {
     if (error instanceof ExperienceNotFound) {
       res.status(error.statusCode()).send(NOT_FOUND)
       console.log(error)
     }
     if (error instanceof DataBaseAccess) {
-      res.status(error.statusCode()).send('Erreur Bdd')
+      res
+        .status(error.statusCode())
+        .send(ERROR_GET_EXPERIENCE + ' ' + `${error}`)
     } else {
-      res.status(400).send(ERROR_GET_EXPERIENCE + ' ' + `${error}`)
+      res.status(400).send(`${error}`)
       console.log(error)
     }
   }
@@ -35,16 +33,21 @@ export async function getExperiences(req, res) {
 /**
  * POST, ajoute une expérience en base de donnée
  */
-export async function addExperience(req, res) {
+export async function createExperience(req, res) {
   try {
     const experience = req.body
-    res.json(await postExperience(experience))
+    await service.createExperience(experience)
+    res.status(200).send('Insertion en base effectuée')
   } catch (error) {
+    if (error instanceof ExperienceNotFound) {
+      res.status(error.statusCode()).send(ERROR_POST_EXPERIENCE + ' ' + error)
+      console.log(error)
+    }
     if (error instanceof DataBaseAccess) {
-      res.status(error.statusCode()).send('Erreur Bdd')
+      res.status(error.statusCode()).send(ERROR_POST_EXPERIENCE + ' ' + error)
     } else {
       console.log(error)
-      res.status(503).send(ERROR_POST_EXPERIENCE + ' ' + `${error}`)
+      res.status(503).send(ERROR_POST_EXPERIENCE + ' ' + error)
     }
   }
 }

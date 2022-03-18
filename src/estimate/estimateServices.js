@@ -26,8 +26,7 @@ export async function getEstimates() {
  */
 export async function createEstimate(estimate) {
   try {
-    const test = await repository.createEstimate(estimate)
-    return test
+    return await repository.createEstimate(estimate)
   } catch (error) {
     if (error instanceof DataBaseAccess) {
       throw new DataBaseAccess(error)

@@ -1,17 +1,23 @@
-import { database } from '../../db.js'
-import { GET_EXPERIENCE_SQL, CREATE_EXPERIENCE } from './queries.js'
-import { ERROR_GET_EXPERIENCE, ERROR_POST_EXPERIENCE } from './constants.js'
+import * as repository from './experienceRepository.js'
+import DataBaseAccess from '../_exception/DataBaseAccess.js'
+import ExperienceNotFound from '../_exception/ExperienceNotFound.js'
 
 /**
  * Methode asynchrone, récupère la liste des expériences
  * @returns Retourne la liste des expériences
  */
-export async function getExperienceSql() {
+export async function getExperiences() {
   try {
-    const { rows } = await database.query(GET_EXPERIENCE_SQL)
-    return rows
+    return await repository.getExperiences()
   } catch (error) {
-    throw ERROR_GET_EXPERIENCE + ' ' + `${error}`
+    if (error instanceof DataBaseAccess) {
+      throw new DataBaseAccess()
+    }
+    if (error instanceof ExperienceNotFound) {
+      throw new ExperienceNotFound()
+    } else {
+      throw new Error()
+    }
   }
 }
 
@@ -19,18 +25,17 @@ export async function getExperienceSql() {
  * Methode asynchrone, création d'une nouvelle expérience
  * @param {Nouvelle expérience} experience
  */
-export async function postExperience(experience) {
+export async function createExperience(experience) {
   try {
-    await database.query(CREATE_EXPERIENCE, [
-      experience.compagny,
-      experience.start_date,
-      experience.end_date,
-      experience.occupation,
-      experience.location,
-      experience.description,
-      experience.id_account,
-    ])
+    return await repository.createExperience(experience)
   } catch (error) {
-    throw ERROR_POST_EXPERIENCE + ' ' + `${error}`
+    if (error instanceof DataBaseAccess) {
+      throw new DataBaseAccess(error)
+    }
+    if (error instanceof ExperienceNotFound) {
+      throw new ExperienceNotFound(error)
+    } else {
+      throw new Error(error)
+    }
   }
 }
