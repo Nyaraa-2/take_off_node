@@ -1,21 +1,21 @@
-import { database } from '../../db.js'
 import DataBaseAccess from '../_exception/DataBaseAccess.js'
-import { GET_EXPERTISES_SQL } from './queries.js'
-import { ERROR_GET_EXPERTISE } from './constants.js'
-
+import ExpertiseNotFound from '../_exception/ExpertiseNotFound.js'
+import * as repository from './expertiseRepository.js'
 /**
- * Methode asynchrone, récupère la liste des utilisateurs
- * @returns Retourne la liste des utilisateurs
+ * Methode asynchrone, récupère la liste des compétences
+ * @returns Retourne la liste des compétences
  */
-export async function getExpertisesSql() {
+export async function getExpertises() {
   try {
-    const { rows } = await database.query(GET_EXPERTISES_SQL)
-    return rows
+    return await repository.getExpertises()
   } catch (error) {
-    if ((error.code = 'ECONNREFUSED')) {
+    if (error instanceof DataBaseAccess) {
       throw new DataBaseAccess()
+    }
+    if (error instanceof ExpertiseNotFound) {
+      throw new ExpertiseNotFound()
     } else {
-      throw ERROR_GET_EXPERTISE + ' ' + `${error}`
+      throw new Error()
     }
   }
 }
