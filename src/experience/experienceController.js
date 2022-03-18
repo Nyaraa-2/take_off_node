@@ -36,8 +36,8 @@ export async function getExperiences(req, res) {
 export async function createExperience(req, res) {
   try {
     const experience = req.body
-    await service.createExperience(experience)
-    res.status(200).send('Insertion en base effectuée')
+    const createExp = await service.createExperience(experience)
+    res.status(200).send(`${createExp}`)
   } catch (error) {
     if (error instanceof ExperienceNotFound) {
       res.status(error.statusCode()).send(ERROR_POST_EXPERIENCE + ' ' + error)
