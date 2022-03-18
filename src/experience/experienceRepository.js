@@ -22,7 +22,7 @@ export async function getExperiences() {
 export async function createExperience(experience) {
   try {
     if (experience != null) {
-      await database.query(CREATE_EXPERIENCE, [
+      const idExperience = await database.query(CREATE_EXPERIENCE, [
         experience.compagny,
         experience.start_date,
         experience.end_date,
@@ -31,6 +31,7 @@ export async function createExperience(experience) {
         experience.description,
         experience.id_account,
       ])
+      return idExperience.rows[0].id
     } else {
       throw new ExperienceNotFound()
     }
