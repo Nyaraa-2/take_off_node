@@ -13,11 +13,7 @@ import {
 export async function getEstimates(req, res) {
   try {
     const estimates = await service.getEstimates()
-    if (estimates.length > 0) {
-      res.json(estimates)
-    } else {
-      throw new EstimateNotFound()
-    }
+    res.json(estimates)
   } catch (error) {
     if (error instanceof EstimateNotFound) {
       res.status(error.statusCode()).send(NOT_FOUND)
