@@ -1,16 +1,21 @@
-import { database } from '../../db.js'
-import { GET_STATUS_SQL } from './queries.js'
-import { ERROR_GET_STATUS } from './constants.js'
-
+import DataBaseAccess from '../_exception/DataBaseAccess.js'
+import StatusNotFound from '../_exception/StatusNotFound.js'
+import * as repository from './statusRepository.js'
 /**
- * Methode asynchrone récupère la liste des status des devis
- * @returns Liste des status
+ * Methode asynchrone, récupère la liste des devis
+ * @returns Retourne la liste des devis
  */
-export async function getStatusSql() {
+export async function getStatus() {
   try {
-    const { rows } = await database.query(GET_STATUS_SQL)
-    return rows
+    return await repository.getStatus()
   } catch (error) {
-    throw ERROR_GET_STATUS + ' ' + `${error}`
+    if (error instanceof DataBaseAccess) {
+      throw new DataBaseAccess()
+    }
+    if (error instanceof StatusNotFound) {
+      throw new StatusNotFound()
+    } else {
+      throw new Error()
+    }
   }
 }
