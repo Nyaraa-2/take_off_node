@@ -1,21 +1,21 @@
-import { database } from '../../db.js'
 import DataBaseAccess from '../_exception/DataBaseAccess.js'
-import { GET_ESTIMATE_SQL, POST_ESTIMATE_SQL } from './queries.js'
-import { ERROR_GET_ESTIMATE, ERROR_POST_ESTIMATE } from './constants.js'
-
+import EstimateNotFound from '../_exception/EstimateNotFound.js'
+import * as repository from './estimateRepository.js'
 /**
  * Methode asynchrone, récupère la liste des devis
  * @returns Retourne la liste des devis
  */
-export async function getEstimateSql() {
+export async function getEstimates() {
   try {
-    const { rows } = await database.query(GET_ESTIMATE_SQL)
-    return rows
+    return await repository.getEstimates()
   } catch (error) {
-    if ((error.code = 'ECONNREFUSED')) {
+    if (error instanceof DataBaseAccess) {
       throw new DataBaseAccess()
+    }
+    if (error instanceof EstimateNotFound) {
+      throw new EstimateNotFound()
     } else {
-      throw ERROR_GET_ESTIMATE + ' ' + `${error}`
+      throw new Error()
     }
   }
 }
@@ -24,26 +24,18 @@ export async function getEstimateSql() {
  *
  * @param {devis} estimate
  */
-export async function postEstimate(estimate) {
+export async function createEstimate(estimate) {
   try {
-    if (estimate != null) {
-      await database.query(POST_ESTIMATE_SQL, [
-        estimate.job_title,
-        estimate.mission,
-        estimate.from_when,
-        estimate.duration,
-        estimate.home_office,
-        estimate.price,
-        estimate.status,
-        estimate.id_freelance,
-        estimate.id_customer,
-      ])
-    }
+    const test = await repository.createEstimate(estimate)
+    return test
   } catch (error) {
-    if ((error.code = 'ECONNREFUSED')) {
-      throw new DataBaseAccess()
+    if (error instanceof DataBaseAccess) {
+      throw new DataBaseAccess(error)
+    }
+    if (error instanceof EstimateNotFound) {
+      throw new EstimateNotFound(error)
     } else {
-      throw ERROR_POST_ESTIMATE + ' ' + `${error}`
+      throw new Error(error)
     }
   }
 }
