@@ -1,7 +1,7 @@
 import express from 'express'
 const experienceRouter = express.Router()
-import { getExperiences, addExperience } from './experienceController.js'
+import * as controller from './experienceController.js'
 
-experienceRouter.get('/experiences', getExperiences)
-experienceRouter.post('/experience', addExperience)
+experienceRouter.get('/experiences', controller.getExperiences)
+experienceRouter.post('/experience', controller.createExperience)
 export default experienceRouter
