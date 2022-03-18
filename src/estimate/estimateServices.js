@@ -1,24 +1,21 @@
 import { database } from '../../db.js'
 import DataBaseAccess from '../_exception/DataBaseAccess.js'
-import EstimateNotFound from '../_exception/EstimateNotFound.js'
 import { GET_ESTIMATE_SQL, POST_ESTIMATE_SQL } from './queries.js'
 import { ERROR_GET_ESTIMATE, ERROR_POST_ESTIMATE } from './constants.js'
-import * as repository from './estimateRepository.js'
+
 /**
  * Methode asynchrone, récupère la liste des devis
  * @returns Retourne la liste des devis
  */
-export async function getEstimates() {
+export async function getEstimateSql() {
   try {
-    return await repository.getEstimates()
+    const { rows } = await database.query(GET_ESTIMATE_SQL)
+    return rows
   } catch (error) {
-    if (error instanceof DataBaseAccess) {
+    if ((error.code = 'ECONNREFUSED')) {
       throw new DataBaseAccess()
-    }
-    if (error instanceof EstimateNotFound) {
-      throw new EstimateNotFound()
     } else {
-      throw new Error()
+      throw ERROR_GET_ESTIMATE + ' ' + `${error}`
     }
   }
 }
@@ -27,18 +24,26 @@ export async function getEstimates() {
  *
  * @param {devis} estimate
  */
-export async function createEstimate(estimate) {
+export async function postEstimate(estimate) {
   try {
-    const test = await repository.createEstimate(estimate)
-    return test
-  } catch (error) {
-    if (error instanceof DataBaseAccess) {
-      throw new DataBaseAccess(error)
+    if (estimate != null) {
+      await database.query(POST_ESTIMATE_SQL, [
+        estimate.job_title,
+        estimate.mission,
+        estimate.from_when,
+        estimate.duration,
+        estimate.home_office,
+        estimate.price,
+        estimate.status,
+        estimate.id_freelance,
+        estimate.id_customer,
+      ])
     }
-    if (error instanceof EstimateNotFound) {
-      throw new EstimateNotFound(error)
+  } catch (error) {
+    if ((error.code = 'ECONNREFUSED')) {
+      throw new DataBaseAccess()
     } else {
-      throw new Error(error)
+      throw ERROR_POST_ESTIMATE + ' ' + `${error}`
     }
   }
 }

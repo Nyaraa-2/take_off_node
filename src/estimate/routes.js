@@ -1,7 +1,7 @@
 import express from 'express'
 const estimateRouter = express.Router()
-import * as controller from './estimateController.js'
+import { getEstimates, addEstimate } from './estimateController.js'
 
-estimateRouter.get('/estimates', controller.getEstimates)
-estimateRouter.post('/estimate', controller.createEstimate)
+estimateRouter.get('/estimates', getEstimates)
+estimateRouter.post('/estimate', addEstimate)
 export default estimateRouter

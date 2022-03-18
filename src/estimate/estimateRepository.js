@@ -14,7 +14,7 @@ export async function getEstimates() {
     if ((error.code = 'ECONNREFUSED')) {
       throw new DataBaseAccess(error)
     } else {
-      throw new Error()
+      throw new Error(error)
     }
   }
 }
