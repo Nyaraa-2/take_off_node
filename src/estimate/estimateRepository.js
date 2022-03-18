@@ -29,7 +29,7 @@ export async function createEstimate(estimate) {
         estimate.duration,
         estimate.home_office,
         estimate.price,
-        estimate.status,
+        estimate.id_status,
         estimate.id_freelance,
         estimate.id_customer,
       ])
