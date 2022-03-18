@@ -1,16 +1,21 @@
-import { database } from '../../db.js'
-import { GET_LOCATION_SQL } from './queries.js'
-import { ERROR_GET_LOCATION } from './constants.js'
-
+import DataBaseAccess from '../_exception/DataBaseAccess.js'
+import LocationNotFound from '../_exception/LocationNotFound.js'
+import * as repository from './locationRepository.js'
 /**
  * Methode asynchrone, récupère la liste des villes
- * @returns Liste des villes
+ * @returns Retourne la liste des villes
  */
-export async function getLocationSql() {
+export async function getLocations() {
   try {
-    const { rows } = await database.query(GET_LOCATION_SQL)
-    return rows
+    return await repository.getLocations()
   } catch (error) {
-    throw ERROR_GET_LOCATION + ' ' + `${error}`
+    if (error instanceof DataBaseAccess) {
+      throw new DataBaseAccess()
+    }
+    if (error instanceof LocationNotFound) {
+      throw new LocationNotFound()
+    } else {
+      throw new Error()
+    }
   }
 }
