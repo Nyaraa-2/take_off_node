@@ -1,4 +1,4 @@
-import { database } from '../../db.js'
+import { database } from '../db.js'
 import { GET_EXPERTISES_SQL } from './queries.js'
 import DataBaseAccess from '../_exception/DataBaseAccess.js'
 import ExpertiseNotFound from '../_exception/ExpertiseNotFound.js'
@@ -11,7 +11,7 @@ export async function getExpertises() {
     }
     return rows
   } catch (error) {
-    if ((error.code === 'ECONNREFUSED')) {
+    if (error.code === 'ECONNREFUSED') {
       throw new DataBaseAccess(error)
     } else {
       throw new Error(error)

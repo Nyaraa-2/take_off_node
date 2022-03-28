@@ -1,4 +1,4 @@
-import { database } from '../../db.js'
+import { database } from '../db.js'
 import DataBaseAccess from '../_exception/DataBaseAccess.js'
 import { GET_USERS_SQL, CREATE_USER } from './queries.js'
 import { ERROR_GET_USER, ERROR_POST_USER, customerProfil } from './constants.js'

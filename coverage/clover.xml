@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1648476281544" clover="3.2.0">
-  <project timestamp="1648476281544" name="All files">
-    <metrics statements="481" coveredstatements="0" conditionals="162" coveredconditionals="0" methods="69" coveredmethods="0" elements="712" coveredelements="0" complexity="0" loc="481" ncloc="481" packages="13" files="72" classes="72"/>
+<coverage generated="1648478222028" clover="3.2.0">
+  <project timestamp="1648478222028" name="All files">
+    <metrics statements="481" coveredstatements="5" conditionals="162" coveredconditionals="1" methods="69" coveredmethods="1" elements="712" coveredelements="7" complexity="0" loc="481" ncloc="481" packages="13" files="72" classes="72"/>
     <package name="_exception">
       <metrics statements="60" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="24" coveredmethods="0"/>
       <file name="DataBaseAccess.js" path="/Users/wendyvigneron/Documents/Marina/take_off_node/src/_exception/DataBaseAccess.js">
@@ -625,15 +625,15 @@
       </file>
     </package>
     <package name="status">
-      <metrics statements="28" coveredstatements="0" conditionals="12" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <metrics statements="28" coveredstatements="5" conditionals="12" coveredconditionals="1" methods="3" coveredmethods="1"/>
       <file name="constants.js" path="/Users/wendyvigneron/Documents/Marina/take_off_node/src/status/constants.js">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="2" count="0" type="stmt"/>
         <line num="3" count="0" type="stmt"/>
       </file>
       <file name="queries.js" path="/Users/wendyvigneron/Documents/Marina/take_off_node/src/status/queries.js">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="4" count="0" type="stmt"/>
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
       </file>
       <file name="statusController.js" path="/Users/wendyvigneron/Documents/Marina/take_off_node/src/status/statusController.js">
         <metrics statements="10" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -649,12 +649,12 @@
         <line num="25" count="0" type="stmt"/>
       </file>
       <file name="statusRepository.js" path="/Users/wendyvigneron/Documents/Marina/take_off_node/src/status/statusRepository.js">
-        <metrics statements="8" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
+        <metrics statements="8" coveredstatements="4" conditionals="4" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="10" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
         <line num="14" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="15" count="0" type="stmt"/>
         <line num="17" count="0" type="stmt"/>

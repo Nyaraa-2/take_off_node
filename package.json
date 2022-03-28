@@ -2,7 +2,7 @@
   "name": "take_off_node",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
     "start": "nodemon app.js",
     "test": "jest",

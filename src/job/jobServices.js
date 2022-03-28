@@ -1,5 +1,5 @@
 import { GET_JOBS_SQL } from './queries.js'
-import { database } from '../../db.js'
+import { database } from '../db.js'
 import DataBaseAccess from '../_exception/DataBaseAccess.js'
 import { ERROR_GET_JOB } from './constants.js'
 

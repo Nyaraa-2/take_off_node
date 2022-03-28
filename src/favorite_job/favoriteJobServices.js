@@ -1,4 +1,4 @@
-import { database } from '../../db.js'
+import { database } from '../db.js'
 import DataBaseAccess from '../_exception/DataBaseAccess.js'
 import { GET_FAVORITE_JOB_SQL, CREATE_FAVORITE_JOB_SQL } from './queries.js'
 import { ERROR_GET_FAVORITE_JOB, ERROR_POST_FAVORITE_JOB } from './constants.js'

@@ -1,4 +1,4 @@
-import { database } from '../../db.js'
+import { database } from '../db.js'
 import { GET_LOCATION_SQL } from './queries.js'
 import DataBaseAccess from '../_exception/DataBaseAccess.js'
 import LocationNotFound from '../_exception/LocationNotFound.js'

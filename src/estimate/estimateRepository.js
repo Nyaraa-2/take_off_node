@@ -1,4 +1,4 @@
-import { database } from '../../db.js'
+import { database } from '../db.js'
 import { GET_ESTIMATE_SQL, POST_ESTIMATE_SQL } from './queries.js'
 import DataBaseAccess from '../_exception/DataBaseAccess.js'
 import EstimateNotFound from '../_exception/EstimateNotFound.js'

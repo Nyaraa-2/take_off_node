@@ -1,4 +1,4 @@
-import { database } from '../../db.js'
+import { database } from '../db.js'
 import { GET_EXPERIENCE_SQL, CREATE_EXPERIENCE } from './queries.js'
 import DataBaseAccess from '../_exception/DataBaseAccess.js'
 import ExperienceNotFound from '../_exception/ExperienceNotFound.js'

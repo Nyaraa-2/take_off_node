@@ -1,10 +1,10 @@
 import express from 'express'
-import { getStatus } from './src/status/statusController.js'
-import { getLocations } from './src/location/locationController.js'
-import { getJobExpertises } from './src/job_expertise/jobExpertiseController.js'
-import { getJobs } from './src/job/jobController.js'
-import { getExpertiseCategory } from './src/expertise_category/expertiseCategoryController.js'
-import { getExpertises } from './src/expertise/expertiseController.js'
+import { getStatus } from './status/statusController.js'
+import { getLocations } from './location/locationController.js'
+import { getJobExpertises } from './job_expertise/jobExpertiseController.js'
+import { getJobs } from './job/jobController.js'
+import { getExpertiseCategory } from './expertise_category/expertiseCategoryController.js'
+import { getExpertises } from './expertise/expertiseController.js'
 
 const statusRouter = express.Router()
 const locationRouter = express.Router()

@@ -1,4 +1,4 @@
-import { database } from '../../db.js'
+import { database } from '../db.js'
 import { GET_LOGGIN_SQL, CREATE_LOGGIN } from './queries.js'
 import { ERROR_GET_LOGGIN, ERROR_POST_LOGGIN } from './constants.js'
 

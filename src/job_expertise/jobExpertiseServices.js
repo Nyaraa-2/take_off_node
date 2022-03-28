@@ -1,4 +1,4 @@
-import { database } from '../../db.js'
+import { database } from '../db.js'
 import DataBaseAccess from '../_exception/DataBaseAccess.js'
 import { GET_JOB_EXPERTISES_SQL } from './queries.js'
 import { ERROR_GET_JOB_EXPERTISE } from './constants.js'

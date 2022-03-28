@@ -1,4 +1,4 @@
-import { database } from '../../db.js'
+import { database } from '../db.js'
 import DataBaseAccess from '../_exception/DataBaseAccess.js'
 import { GET_EXPERTISES_CATEGORY_SQL } from './queries.js'
 import { ERROR_GET_EXPERTISE_CATEGORY } from './constants.js'

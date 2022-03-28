@@ -1,4 +1,4 @@
-import { database } from '../../db.js'
+import { database } from '../db.js'
 import { GET_STATUS_SQL } from './queries.js'
 import DataBaseAccess from '../_exception/DataBaseAccess.js'
 import StatusNotFound from '../_exception/StatusNotFound.js'
