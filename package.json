@@ -8,11 +8,16 @@
     "test": "jest",
     "coverage": "jest --coverage"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nyaraa-2/take_off_node.git"
+  },
   "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel-jest": "^27.5.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
@@ -21,6 +26,8 @@
     "request-promise": "^4.2.6"
   },
   "devDependencies": {
-    "jest": "^27.5.1"
+    "@babel/preset-env": "^7.16.11",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.3"
   }
 }
