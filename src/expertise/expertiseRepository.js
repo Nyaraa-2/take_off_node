@@ -11,7 +11,7 @@ export async function getExpertises() {
     }
     return rows
   } catch (error) {
-    if ((error.code = 'ECONNREFUSED')) {
+    if ((error.code === 'ECONNREFUSED')) {
       throw new DataBaseAccess(error)
     } else {
       throw new Error(error)
