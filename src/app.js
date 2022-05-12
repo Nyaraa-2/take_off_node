@@ -8,6 +8,7 @@ import experienceRouter from './experience/routes.js'
 import graduationRouter from './graduation/routes.js'
 import favoriteJobRouter from './favorite_job/routes.js'
 import getDataForms from './routes.js'
+import ratingRouter from './rating/routes.js'
 
 const basicRoute = '/'
 const app = express()
@@ -30,5 +31,6 @@ app.use(basicRoute, getDataForms.location)
 app.use(basicRoute, getDataForms.expertise)
 app.use(basicRoute, getDataForms.jobExpertise)
 app.use(basicRoute, getDataForms.expertiseCategory)
+app.use(basicRoute, ratingRouter)
 
 app.listen(port, () => console.log(`App take off listen on port ${port}`))
