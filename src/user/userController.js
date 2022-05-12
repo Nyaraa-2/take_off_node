@@ -1,6 +1,6 @@
 import UserNotFound from '../_exception/UserNotFound.js'
 import DataBaseAccess from '../_exception/DataBaseAccess.js'
-import { getUsersSql, postUser } from './userServices.js'
+import { getUsersSql, postUser, getUsersDetailsSql } from './userServices.js'
 import { ERROR_GET_USER, ERROR_POST_USER, NOT_FOUND } from './constants.js'
 /**
  * GET, retourne la liste de tous les utilisateurs
@@ -40,6 +40,28 @@ export async function addUser(req, res) {
     } else {
       console.log(error)
       res.status(503).send(ERROR_POST_USER + ' ' + `${error}`)
+    }
+  }
+}
+
+export async function getUsersDetails(req, res) {
+  try {
+    const users = await getUsersDetailsSql()
+    if (users.length > 0) {
+      res.json(users)
+    } else {
+      throw new UserNotFound()
+    }
+  } catch (error) {
+    if (error instanceof UserNotFound) {
+      res.status(error.statusCode()).send(NOT_FOUND)
+      console.log(error)
+    }
+    if (error instanceof DataBaseAccess) {
+      res.status(error.statusCode()).send('Erreur Bdd')
+    } else {
+      res.status(400).send(ERROR_GET_USER + ' ' + `${error}`)
+      console.log(error)
     }
   }
 }

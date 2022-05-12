@@ -1,6 +1,6 @@
 import { database } from '../db.js'
 import DataBaseAccess from '../_exception/DataBaseAccess.js'
-import { GET_USERS_SQL, CREATE_USER } from './queries.js'
+import { GET_USERS_SQL, CREATE_USER, GET_USERS_DETAILS } from './queries.js'
 import { ERROR_GET_USER, ERROR_POST_USER, customerProfil } from './constants.js'
 
 /**
@@ -49,6 +49,19 @@ export async function postUser(user) {
       throw new DataBaseAccess()
     } else {
       throw ERROR_POST_USER + ' ' + `${error}`
+    }
+  }
+}
+
+export async function getUsersDetailsSql() {
+  try {
+    const { rows } = await database.query(GET_USERS_DETAILS)
+    return rows
+  } catch (error) {
+    if ((error.code = 'ECONNREFUSED')) {
+      throw new DataBaseAccess()
+    } else {
+      throw ERROR_GET_USER + ' ' + `${error}`
     }
   }
 }
